@@ -13,29 +13,9 @@ import UIKit
  */
 struct AddAnime {
     struct Request {
-        
+        var anime: Anime
     }
     struct Response {
-        struct Anime {
-            var name: String
-            var description: String
-            var rating: Int
-            var status: StatusAnime
-            
-            enum StatusAnime {
-                case watched, toWatch
-            }
-        }
-        
-        var animes: [Anime]
-        
-        struct ViewModel {
-            struct ItemViewModel {
-                let identifier: Int
-                let preparedName: String?
-                let preparedImage: UIImage?
-            }
-            var itemsViewModel: [ItemViewModel]
-        }
+        var addAnimeAction: Bool
     }
 }

@@ -10,28 +10,26 @@ import UIKit
 
 // MARK: Boundary protocols
 protocol AddAnimeInteractorInput {
-    func doSomething(_ request: AddAnime.Request)
+    func addAnimeOnDatabase(_ request: AddAnime.Request)
 }
 
 protocol AddAnimeInteractorOutput {
-    func presentSomething(_ response: AddAnime.Response)
+    func animeAdded(_ response: AddAnime.Response)
 }
 
 // MARK: Class
 /**
-    Class to <#business#>.
+    Class to add anime in a local class.
  */
 class AddAnimeInteractor: AddAnimeInteractorInput {
     var output: AddAnimeInteractorOutput!
     
     // MARK: Business logic
-    func doSomething(_ request: AddAnime.Request) {
-        // NOTE: Create some Entity to do the work
-        //let entity = AddAnimeWorker()
-        //entity.doSomeWork()
+    func addAnimeOnDatabase(_ request: AddAnime.Request) {
+        let workerResponse = AnimeDatabaseWorker.addAnime(request: request)
         
         // NOTE: Pass the result to the Presenter
-        let response = AddAnime.Response()
-        output.presentSomething(response)
+        let response = AddAnime.Response(addAnimeAction: workerResponse)
+        output.animeAdded(response)
     }
 }

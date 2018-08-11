@@ -12,19 +12,22 @@ import UIKit
     Class to build view controller's dependency tree. Makes and links ViewController, Interactor, and Presenter objects.
  */
 class AddAnimeConfigurator {
+
     static func inject(dependenciesFor viewController: AddAnimeViewController) {
         if viewController.output != nil {
             return
         }
-        
+
         let router = AddAnimeRouter()
         router.viewController = viewController
-        viewController.router = router
         
         let presenter = AddAnimePresenter()
-        let interactor = AddAnimeInteractor()
-        viewController.output = interactor
-        interactor.output = presenter
         presenter.output = viewController
+        
+        let interactor = AddAnimeInteractor()
+        interactor.output = presenter
+        
+        viewController.output = interactor
+        viewController.router = router
     }
 }

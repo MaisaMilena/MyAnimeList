@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		252C4666211E24A200938CA1 /* AnimeDatabaseWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252C4665211E24A200938CA1 /* AnimeDatabaseWorker.swift */; };
 		257ED932211C72A100E82B27 /* AddAnimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257ED931211C72A100E82B27 /* AddAnimeViewController.swift */; };
 		257ED934211C72B100E82B27 /* AddAnimeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257ED933211C72B100E82B27 /* AddAnimeInteractor.swift */; };
 		257ED936211C72EB00E82B27 /* AddAnimePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257ED935211C72EB00E82B27 /* AddAnimePresenter.swift */; };
@@ -20,6 +21,8 @@
 		25F83CD9211BDF4800EADCA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25F83CD8211BDF4800EADCA4 /* Assets.xcassets */; };
 		25F83CDC211BDF4800EADCA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25F83CDA211BDF4800EADCA4 /* LaunchScreen.storyboard */; };
 		25F83CE7211BDF4800EADCA4 /* MyAnimeListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F83CE6211BDF4800EADCA4 /* MyAnimeListTests.swift */; };
+		25FC5040211E164C00E058F4 /* Anime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FC503F211E164C00E058F4 /* Anime.swift */; };
+		25FC5042211E170100E058F4 /* AnimeDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FC5041211E170100E058F4 /* AnimeDatabase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		252C4665211E24A200938CA1 /* AnimeDatabaseWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeDatabaseWorker.swift; sourceTree = "<group>"; };
 		257ED931211C72A100E82B27 /* AddAnimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAnimeViewController.swift; sourceTree = "<group>"; };
 		257ED933211C72B100E82B27 /* AddAnimeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAnimeInteractor.swift; sourceTree = "<group>"; };
 		257ED935211C72EB00E82B27 /* AddAnimePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAnimePresenter.swift; sourceTree = "<group>"; };
@@ -50,6 +54,8 @@
 		25F83CE2211BDF4800EADCA4 /* MyAnimeListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyAnimeListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		25F83CE6211BDF4800EADCA4 /* MyAnimeListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAnimeListTests.swift; sourceTree = "<group>"; };
 		25F83CE8211BDF4800EADCA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		25FC503F211E164C00E058F4 /* Anime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anime.swift; sourceTree = "<group>"; };
+		25FC5041211E170100E058F4 /* AnimeDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeDatabase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +120,9 @@
 		25F83CF1211BDFF800EADCA4 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				25FC503F211E164C00E058F4 /* Anime.swift */,
+				25FC5041211E170100E058F4 /* AnimeDatabase.swift */,
+				252C4665211E24A200938CA1 /* AnimeDatabaseWorker.swift */,
 				25F83CF2211BE0C200EADCA4 /* Add anime */,
 			);
 			path = Scenes;
@@ -237,9 +246,12 @@
 				25F83CD4211BDF4500EADCA4 /* ViewController.swift in Sources */,
 				257ED93A211C732000E82B27 /* CustomizableViewType.swift in Sources */,
 				257ED93C211C733800E82B27 /* AddAnimeBoundaryModels.swift in Sources */,
+				25FC5042211E170100E058F4 /* AnimeDatabase.swift in Sources */,
 				257ED936211C72EB00E82B27 /* AddAnimePresenter.swift in Sources */,
 				257ED934211C72B100E82B27 /* AddAnimeInteractor.swift in Sources */,
 				257ED938211C72F700E82B27 /* AddAnimeRouter.swift in Sources */,
+				25FC5040211E164C00E058F4 /* Anime.swift in Sources */,
+				252C4666211E24A200938CA1 /* AnimeDatabaseWorker.swift in Sources */,
 				257ED932211C72A100E82B27 /* AddAnimeViewController.swift in Sources */,
 				25F83CD2211BDF4500EADCA4 /* AppDelegate.swift in Sources */,
 				257ED93E211C734900E82B27 /* AddAnimeConfigurator.swift in Sources */,

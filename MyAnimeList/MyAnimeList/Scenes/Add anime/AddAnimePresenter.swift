@@ -10,7 +10,7 @@ import UIKit
 
 // MARK: Boundary protocol
 protocol AddAnimePresenterOutput: class {
-    func displaySomething(_ viewModel: AddAnime.Response.ViewModel)
+    func displayMessage(_ isAnimeAdded: AddAnime.Response)
 }
 
 // MARK: Class
@@ -21,8 +21,8 @@ class AddAnimePresenter: AddAnimeInteractorOutput {
     weak var output: AddAnimePresenterOutput?
     
     // MARK: Presentation logic
-    func presentSomething(_ response: AddAnime.Response) {
-        let viewModel = AddAnime.Response.ViewModel()
-        output?.displaySomething(viewModel)
+    func animeAdded(_ response: AddAnime.Response) {
+        let response = AddAnime.Response(addAnimeAction: response.addAnimeAction)
+        output?.displayMessage(response)
     }
 }

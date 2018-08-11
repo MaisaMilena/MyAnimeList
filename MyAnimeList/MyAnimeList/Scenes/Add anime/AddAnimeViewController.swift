@@ -59,6 +59,6 @@ class AddAnimeViewController: UIViewController, AddAnimePresenterOutput {
     // MARK: - Display logic
     func displayMessage(_ isAnimeAdded: AddAnime.Response) {
         print("Is anime added on database? \(isAnimeAdded.addAnimeAction)")
-        performSegue(withIdentifier: "addToHomeSegue", sender: nil)
+        router.navigateToHome()
     }
 }

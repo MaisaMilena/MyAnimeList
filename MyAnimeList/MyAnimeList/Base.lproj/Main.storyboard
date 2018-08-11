@@ -27,7 +27,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="Title" id="T6x-fF-t75">
+                                    <navigationItem title="Home" id="T6x-fF-t75">
                                         <barButtonItem key="rightBarButtonItem" style="plain" id="Bbg-Zy-Lr2">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="AdY-aq-KCd">
                                                 <rect key="frame" x="326" y="5" width="33" height="34"/>
@@ -35,10 +35,10 @@
                                                 <state key="normal" title="Add">
                                                     <color key="titleColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
-                                                <connections>
-                                                    <segue destination="h30-xY-CFe" kind="show" id="r5m-MN-nQP"/>
-                                                </connections>
                                             </button>
+                                            <connections>
+                                                <segue destination="h30-xY-CFe" kind="show" id="iQU-A5-1bH"/>
+                                            </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
@@ -62,7 +62,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+            <point key="canvasLocation" x="84" y="-15"/>
         </scene>
         <!--Add Anime View Controller-->
         <scene sceneID="ySe-UL-XjN">
@@ -105,7 +105,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="Title" id="MSQ-TL-yDp">
+                                    <navigationItem title="Add anime" id="MSQ-TL-yDp">
                                         <barButtonItem key="rightBarButtonItem" style="plain" id="ApV-Nv-nMi">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ZaQ-Kn-ZGt">
                                                 <rect key="frame" x="325" y="7" width="34" height="30"/>

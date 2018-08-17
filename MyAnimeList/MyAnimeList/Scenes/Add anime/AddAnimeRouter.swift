@@ -16,7 +16,7 @@ class AddAnimeRouter {
     
     // MARK: Manual navigation
     func navigateToHome() {
-        viewController?.performSegue(withIdentifier: "addToHomeSegue", sender: nil)
+        viewController?.performSegue(withIdentifier: "addAnimeToHomeSegue", sender: nil)
     }
     
     // MARK: Scene communication

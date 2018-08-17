@@ -19,12 +19,14 @@ class ListAnimeConfigurator {
         
         let router = ListAnimeRouter()
         router.viewController = viewController
-        viewController.router = router
         
         let presenter = ListAnimePresenter()
-        let interactor = ListAnimeInteractor()
-        viewController.output = interactor
-        interactor.output = presenter
         presenter.output = viewController
+        
+        let interactor = ListAnimeInteractor()
+        interactor.output = presenter
+        
+        viewController.router = router
+        viewController.output = interactor
     }
 }

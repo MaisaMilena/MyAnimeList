@@ -11,9 +11,13 @@ import UIKit
 /**
     Class to control the view of the scene.
  */
-class ListAnimeViewController: UIViewController, ListAnimePresenterOutput {
+class ListAnimeViewController: UITableViewController, ListAnimePresenterOutput {
     var output: ListAnimeInteractorInput!
     var router: ListAnimeRouter!
+    
+    // MARK: - View elements
+    @IBOutlet weak var tableViewController: UITableView!
+    @IBOutlet weak var animeStatus: UISegmentedControl!
     
     // MARK: Object lifecycle
     init() {
@@ -29,24 +33,30 @@ class ListAnimeViewController: UIViewController, ListAnimePresenterOutput {
     // MARK: View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        doSomethingOnLoad()
     }
     
     // MARK: Segues
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        router.passDataBetweenScenes(of: segue)
+    
+    @IBAction func addAnime(_ sender: Any) {
+        router.homeToAddAnime()
+        print("Add anime")
+    }
+ 
+    @IBAction func animeStatusSelection(_ sender: Any) {
+        print("Segmented clicked")
     }
     
-    // MARK: Event handling
-    func doSomethingOnLoad() {
-        // NOTE: Ask the Interactor to do some work
-        let request = ListAnime.Request()
-        output.doSomething(request)
-    }
     
     // MARK: Display logic
     func displaySomething(_ viewModel: ListAnime.Response.ViewModel) {
         // NOTE: Display the result from the Presenter
         // nameTextField.text = viewModel.name
     }
+
+    
 }
+
+extension ListAnimeViewController: UIPageViewControllerDelegate {
+    
+}
+

@@ -28,7 +28,7 @@ class AddAnimeInteractor: AddAnimeInteractorInput {
     func addAnimeOnDatabase(_ request: AddAnime.Request) {
         let workerResponse = AnimeDatabaseWorker.addAnime(request: request)
         
-        // NOTE: Pass the result to the Presenter
+        // Pass the result to the Presenter
         let response = AddAnime.Response(addAnimeAction: workerResponse)
         output.animeAdded(response)
     }

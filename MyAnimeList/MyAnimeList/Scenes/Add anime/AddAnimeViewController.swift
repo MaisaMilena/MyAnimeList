@@ -38,11 +38,6 @@ class AddAnimeViewController: UIViewController, AddAnimePresenterOutput {
         super.viewDidLoad()
     }
     
-    // MARK: - Segues
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        router.passDataBetweenScenes(of: segue)
-    }
-    
     // MARK: - Event handling
     @IBAction func submitAnimeAction(_ sender: Any) {
         var anime = Anime()
@@ -59,6 +54,7 @@ class AddAnimeViewController: UIViewController, AddAnimePresenterOutput {
     // MARK: - Display logic
     func displayMessage(_ isAnimeAdded: AddAnime.Response) {
         print("Is anime added on database? \(isAnimeAdded.addAnimeAction)")
+        
         router.navigateToHome()
     }
 }

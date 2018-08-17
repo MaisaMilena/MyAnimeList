@@ -10,7 +10,7 @@ import UIKit
 
 // MARK: Boundary protocols
 protocol ListAnimeInteractorInput {
-    func doSomething(_ request: ListAnime.Request)
+    func listAnime(_ request: ListAnime.Request)
 }
 
 protocol ListAnimeInteractorOutput {
@@ -25,7 +25,7 @@ class ListAnimeInteractor: ListAnimeInteractorInput {
     var output: ListAnimeInteractorOutput!
     
     // MARK: Business logic
-    func doSomething(_ request: ListAnime.Request) {
+    func listAnime(_ request: ListAnime.Request) {
         // NOTE: Create some Entity to do the work
         //let entity = ListAnimeWorker()
         //entity.doSomeWork()

@@ -18,11 +18,12 @@ protocol AddAnimePresenterOutput: class {
     Class to format the data response from the Interactor and pass the result view model to the View Controller
  */
 class AddAnimePresenter: AddAnimeInteractorOutput {
-    weak var output: AddAnimePresenterOutput?
+    var output: AddAnimePresenterOutput!
     
     // MARK: Presentation logic
     func animeAdded(_ response: AddAnime.Response) {
+        // respondes if the anime were added or not
         let response = AddAnime.Response(addAnimeAction: response.addAnimeAction)
-        output?.displayMessage(response)
+        output.displayMessage(response)
     }
 }

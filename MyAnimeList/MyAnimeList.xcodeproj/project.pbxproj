@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		252C4666211E24A200938CA1 /* AnimeDatabaseWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252C4665211E24A200938CA1 /* AnimeDatabaseWorker.swift */; };
+		252C4666211E24A200938CA1 /* AnimeWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252C4665211E24A200938CA1 /* AnimeWorker.swift */; };
 		252C4669211E6B7D00938CA1 /* ListAnimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252C4668211E6B7D00938CA1 /* ListAnimeViewController.swift */; };
 		252C466B211E6B9500938CA1 /* ListAnimeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252C466A211E6B9500938CA1 /* ListAnimeInteractor.swift */; };
 		252C466D211E6BA100938CA1 /* ListAnimePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252C466C211E6BA100938CA1 /* ListAnimePresenter.swift */; };
@@ -41,7 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		252C4665211E24A200938CA1 /* AnimeDatabaseWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeDatabaseWorker.swift; sourceTree = "<group>"; };
+		252C4665211E24A200938CA1 /* AnimeWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeWorker.swift; sourceTree = "<group>"; };
 		252C4668211E6B7D00938CA1 /* ListAnimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAnimeViewController.swift; sourceTree = "<group>"; };
 		252C466A211E6B9500938CA1 /* ListAnimeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAnimeInteractor.swift; sourceTree = "<group>"; };
 		252C466C211E6BA100938CA1 /* ListAnimePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAnimePresenter.swift; sourceTree = "<group>"; };
@@ -145,7 +145,7 @@
 			children = (
 				25FC503F211E164C00E058F4 /* Anime.swift */,
 				25FC5041211E170100E058F4 /* AnimeDatabase.swift */,
-				252C4665211E24A200938CA1 /* AnimeDatabaseWorker.swift */,
+				252C4665211E24A200938CA1 /* AnimeWorker.swift */,
 				25F83CF2211BE0C200EADCA4 /* Add anime */,
 				252C4667211E652100938CA1 /* List anime */,
 			);
@@ -279,7 +279,7 @@
 				252C466D211E6BA100938CA1 /* ListAnimePresenter.swift in Sources */,
 				257ED938211C72F700E82B27 /* AddAnimeRouter.swift in Sources */,
 				25FC5040211E164C00E058F4 /* Anime.swift in Sources */,
-				252C4666211E24A200938CA1 /* AnimeDatabaseWorker.swift in Sources */,
+				252C4666211E24A200938CA1 /* AnimeWorker.swift in Sources */,
 				257ED932211C72A100E82B27 /* AddAnimeViewController.swift in Sources */,
 				25F83CD2211BDF4500EADCA4 /* AppDelegate.swift in Sources */,
 				257ED93E211C734900E82B27 /* AddAnimeConfigurator.swift in Sources */,

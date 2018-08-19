@@ -32,4 +32,5 @@ class AddAnimeInteractor: AddAnimeInteractorInput {
         let response = AddAnime.Response(addAnimeAction: workerResponse)
         output.animeAdded(response)
     }
+    
 }

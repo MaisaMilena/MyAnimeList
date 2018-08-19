@@ -23,6 +23,6 @@ class ListAnimePresenter: ListAnimeInteractorOutput {
     // MARK: Presentation logic
     func presentSomething(_ response: ListAnime.Response) {
         let viewModel = ListAnime.Response.ViewModel()
-        output?.displaySomething(viewModel)
+        output?.displaySomething(viewModel)  
     }
 }

@@ -13,9 +13,9 @@ struct Anime {
     var title: String?
     var description: String?
     var rating: Int?
-    var status: StatusAnime?
+    var status: AnimeStatusType?
 }
 
-enum StatusAnime {
+enum AnimeStatusType {
     case watched, toWatch
 }

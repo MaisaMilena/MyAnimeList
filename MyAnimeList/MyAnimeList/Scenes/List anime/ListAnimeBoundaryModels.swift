@@ -12,13 +12,18 @@ import UIKit
     Structures that View Controller, Interactor and Presenter pass over boundary interfaces from one to other.
  */
 struct ListAnime {
+    
     struct Request {
-        
+        var animeCategory: AnimeStatusType
     }
+    
     struct Response {
-        
+        var animes: [Anime]
         struct ViewModel {
             
         }
     }
+
+    
 }
+

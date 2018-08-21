@@ -10,7 +10,8 @@ import UIKit
 
 // MARK: Boundary protocol
 protocol ListAnimePresenterOutput: class {
-    func displaySomething(_ viewModel: ListAnime.Response.ViewModel)
+    func displayAnime(_ response: ListAnime.Response)
+    func getQtdAnime(qtd: Int)
 }
 
 // MARK: Class
@@ -18,11 +19,17 @@ protocol ListAnimePresenterOutput: class {
     Class to format the data response from the Interactor and pass the result view model to the View Controller
  */
 class ListAnimePresenter: ListAnimeInteractorOutput {
+
+    
+   // View Controller
     weak var output: ListAnimePresenterOutput?
     
     // MARK: Presentation logic
-    func presentSomething(_ response: ListAnime.Response) {
-        let viewModel = ListAnime.Response.ViewModel()
-        output?.displaySomething(viewModel)  
+    func presentAnime(_ response: ListAnime.Response) {
+        output?.displayAnime(response)
+    }
+    
+    func getQtdAnime(qtd: Int) {
+        output?.getQtdAnime(qtd: qtd)
     }
 }

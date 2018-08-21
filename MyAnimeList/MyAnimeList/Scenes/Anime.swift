@@ -17,5 +17,5 @@ struct Anime {
 }
 
 enum AnimeStatusType {
-    case watched, toWatch
+    case watched, toWatch, none
 }

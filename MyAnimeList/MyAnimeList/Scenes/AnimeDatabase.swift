@@ -14,6 +14,8 @@ class AnimeDatabase {
     public static var instance = AnimeDatabase()
     
     private init() {
+        print("🦄 Init do AnimeDatabase")
+        
         var saikiKusuo = Anime()
         saikiKusuo.title = "Saiki Kusuo no psi-nan"
         saikiKusuo.description = "To the average person, psychic abilities might seem a blessing; for Kusuo Saiki, however, this couldn't be further from the truth"
@@ -26,8 +28,15 @@ class AnimeDatabase {
         melancoly.rating = 5
         melancoly.status = AnimeStatusType.toWatch
         
+        var steins = Anime()
+        steins.title = "Steins Gate"
+        steins.description = "Adapted from the critically acclaimed visual novel by 5pb. and Nitroplus, Steins;Gate takes Okabe through the depths of scientific theory and practicality. Forced across the diverging threads of past and present, Okabe must shoulder the burdens that come with holding the key to the realm of time"
+        steins.rating = 5
+        steins.status = AnimeStatusType.watched
+        
         animes.append(saikiKusuo)
         animes.append(melancoly)
+        animes.append(steins)
     }
 
     // MARK: database functions

@@ -16,7 +16,6 @@ class ListAnimeConfigurator {
         if viewController.output != nil {
             return
         }
-        
         let router = ListAnimeRouter()
         router.viewController = viewController
         

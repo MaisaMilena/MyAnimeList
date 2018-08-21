@@ -28,14 +28,14 @@ class AnimeWorker {
         var category: ListAnime.Request
         switch request.animeCategory {
         case .toWatch:
-            category.animeCategory = .toWatch
+            category = ListAnime.Request.init(animeCategory: .toWatch)
             break
         case .watched:
-            category.animeCategory = .watched
+            category = ListAnime.Request.init(animeCategory: .watched)
         default:
-            category.animeCategory = nil
+            category = ListAnime.Request.init(animeCategory: .none)
         }
-        let animes = AnimeDatabase.instance.getAnimes(category)
+        let animes = AnimeDatabase.instance.getAnimes(category.animeCategory)
         return ListAnime.Response.init(animes: animes)
     }
     

@@ -44,7 +44,7 @@ class AddAnimeViewController: UIViewController, AddAnimePresenterOutput {
         anime.title = animeTitle.text
         anime.description = animeDescription.text
         anime.rating = Int(rating.value)
-        anime.status = isWatched.isOn ? StatusAnime.watched : StatusAnime.toWatch
+        anime.status = isWatched.isOn ? AnimeStatusType.watched : AnimeStatusType.toWatch
         
         let request = AddAnime.Request(anime: anime)
         output.addAnimeOnDatabase(request)

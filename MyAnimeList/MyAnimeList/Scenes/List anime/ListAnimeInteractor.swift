@@ -14,7 +14,8 @@ protocol ListAnimeInteractorInput {
 }
 
 protocol ListAnimeInteractorOutput {
-    func presentSomething(_ response: ListAnime.Response)
+    func presentAnime(_ response: ListAnime.Response)
+    func getQtdAnime(qtd: Int)
 }
 
 // MARK: Class
@@ -26,10 +27,11 @@ class ListAnimeInteractor: ListAnimeInteractorInput {
     var output: ListAnimeInteractorOutput!
     
     // MARK: Business logic
-    // Request from ListAnimeInteractor
+    // Request from ViewController
     func getAnimes(_ request: ListAnime.Request) {
         let response = AnimeWorker.getAnimes(request: request)
-        output.presentSomething(response)
+        output.presentAnime(response)
+        output.getQtdAnime(qtd: response.animes.count)
     }
     
 }

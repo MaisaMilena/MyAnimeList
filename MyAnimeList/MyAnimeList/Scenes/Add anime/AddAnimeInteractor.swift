@@ -26,7 +26,7 @@ class AddAnimeInteractor: AddAnimeInteractorInput {
     
     // MARK: Business logic
     func addAnimeOnDatabase(_ request: AddAnime.Request) {
-        let workerResponse = AnimeDatabaseWorker.addAnime(request: request)
+        let workerResponse = AnimeWorker.addAnime(request: request)
         
         // Pass the result to the Presenter
         let response = AddAnime.Response(addAnimeAction: workerResponse)

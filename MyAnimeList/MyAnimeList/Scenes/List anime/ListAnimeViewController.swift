@@ -42,6 +42,9 @@ class ListAnimeViewController: UITableViewController, ListAnimePresenterOutput {
         let request = ListAnime.Request.init(animeCategory: .toWatch)
         output.getAnimes(request)
         super.viewDidLoad()
+        
+        let nib = UINib(nibName: "AnimeTableViewCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "animeCellIdentifier")
     }
     
     // MARK: Segues
@@ -83,9 +86,9 @@ extension ListAnimeViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "animeCellIdentifier", for: indexPath) as! AnimeCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "animeCellIdentifier", for: indexPath) as! AnimeTableViewCell
         let anime = animes[indexPath.row]
-        cell.titleName.text = anime.title
+        cell.animeTitle.text = anime.title
         cell.animeDescription.text = anime.description
         cell.ratingScore.text = String(anime.rating!)
         return cell 

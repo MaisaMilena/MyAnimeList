@@ -4,6 +4,14 @@
       "idiom" : "universal",
       "filename" : "slider-2-1600x600.jpg",
       "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
     }
   ],
   "info" : {

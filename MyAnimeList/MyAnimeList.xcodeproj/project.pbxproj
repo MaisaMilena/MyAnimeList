@@ -22,9 +22,7 @@
 		257ED938211C72F700E82B27 /* AddAnimeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257ED937211C72F700E82B27 /* AddAnimeRouter.swift */; };
 		257ED93C211C733800E82B27 /* AddAnimeBoundaryModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257ED93B211C733800E82B27 /* AddAnimeBoundaryModels.swift */; };
 		257ED93E211C734900E82B27 /* AddAnimeConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257ED93D211C734900E82B27 /* AddAnimeConfigurator.swift */; };
-		25988E4C212B003100199DE0 /* AnimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25988E4B212B003100199DE0 /* AnimeCell.swift */; };
 		25F83CD2211BDF4500EADCA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F83CD1211BDF4500EADCA4 /* AppDelegate.swift */; };
-		25F83CD4211BDF4500EADCA4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F83CD3211BDF4500EADCA4 /* ViewController.swift */; };
 		25F83CD7211BDF4500EADCA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25F83CD5211BDF4500EADCA4 /* Main.storyboard */; };
 		25F83CD9211BDF4800EADCA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25F83CD8211BDF4800EADCA4 /* Assets.xcassets */; };
 		25F83CDC211BDF4800EADCA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25F83CDA211BDF4800EADCA4 /* LaunchScreen.storyboard */; };
@@ -59,10 +57,8 @@
 		257ED937211C72F700E82B27 /* AddAnimeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAnimeRouter.swift; sourceTree = "<group>"; };
 		257ED93B211C733800E82B27 /* AddAnimeBoundaryModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAnimeBoundaryModels.swift; sourceTree = "<group>"; };
 		257ED93D211C734900E82B27 /* AddAnimeConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAnimeConfigurator.swift; sourceTree = "<group>"; };
-		25988E4B212B003100199DE0 /* AnimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeCell.swift; sourceTree = "<group>"; };
 		25F83CCE211BDF4500EADCA4 /* MyAnimeList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyAnimeList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25F83CD1211BDF4500EADCA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		25F83CD3211BDF4500EADCA4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		25F83CD6211BDF4500EADCA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		25F83CD8211BDF4800EADCA4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		25F83CDB211BDF4800EADCA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -92,9 +88,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		250B6C36212E41FB009B9463 /* Anime management */ = {
+			isa = PBXGroup;
+			children = (
+				25FC503F211E164C00E058F4 /* Anime.swift */,
+				25FC5041211E170100E058F4 /* AnimeDatabase.swift */,
+				252C4665211E24A200938CA1 /* AnimeWorker.swift */,
+			);
+			path = "Anime management";
+			sourceTree = "<group>";
+		};
+		250B6C37212E4208009B9463 /* Tableview cell */ = {
+			isa = PBXGroup;
+			children = (
+				252D66C1212C58F900943FBE /* AnimeTableViewCell.swift */,
+				252D66C2212C58F900943FBE /* AnimeTableViewCell.xib */,
+			);
+			path = "Tableview cell";
+			sourceTree = "<group>";
+		};
+		250B6C3C212E4311009B9463 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				25F83CD1211BDF4500EADCA4 /* AppDelegate.swift */,
+				25F83CD8211BDF4800EADCA4 /* Assets.xcassets */,
+				25F83CDA211BDF4800EADCA4 /* LaunchScreen.storyboard */,
+				25F83CDD211BDF4800EADCA4 /* Info.plist */,
+			);
+			name = "Supporting files";
+			path = ..;
+			sourceTree = "<group>";
+		};
 		252C4667211E652100938CA1 /* List anime */ = {
 			isa = PBXGroup;
 			children = (
+				250B6C37212E4208009B9463 /* Tableview cell */,
 				252C4668211E6B7D00938CA1 /* ListAnimeViewController.swift */,
 				252C466A211E6B9500938CA1 /* ListAnimeInteractor.swift */,
 				252C466C211E6BA100938CA1 /* ListAnimePresenter.swift */,
@@ -126,13 +154,8 @@
 		25F83CD0211BDF4500EADCA4 /* MyAnimeList */ = {
 			isa = PBXGroup;
 			children = (
+				250B6C36212E41FB009B9463 /* Anime management */,
 				25F83CF1211BDFF800EADCA4 /* Scenes */,
-				25F83CD1211BDF4500EADCA4 /* AppDelegate.swift */,
-				25F83CD3211BDF4500EADCA4 /* ViewController.swift */,
-				25F83CD5211BDF4500EADCA4 /* Main.storyboard */,
-				25F83CD8211BDF4800EADCA4 /* Assets.xcassets */,
-				25F83CDA211BDF4800EADCA4 /* LaunchScreen.storyboard */,
-				25F83CDD211BDF4800EADCA4 /* Info.plist */,
 			);
 			path = MyAnimeList;
 			sourceTree = "<group>";
@@ -149,14 +172,10 @@
 		25F83CF1211BDFF800EADCA4 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				25FC503F211E164C00E058F4 /* Anime.swift */,
-				25FC5041211E170100E058F4 /* AnimeDatabase.swift */,
-				252C4665211E24A200938CA1 /* AnimeWorker.swift */,
+				25F83CD5211BDF4500EADCA4 /* Main.storyboard */,
 				25F83CF2211BE0C200EADCA4 /* Add anime */,
 				252C4667211E652100938CA1 /* List anime */,
-				25988E4B212B003100199DE0 /* AnimeCell.swift */,
-				252D66C1212C58F900943FBE /* AnimeTableViewCell.swift */,
-				252D66C2212C58F900943FBE /* AnimeTableViewCell.xib */,
+				250B6C3C212E4311009B9463 /* Supporting files */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -276,10 +295,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25F83CD4211BDF4500EADCA4 /* ViewController.swift in Sources */,
 				252C466F211E6BAC00938CA1 /* ListAnimeRouter.swift in Sources */,
 				252C466B211E6B9500938CA1 /* ListAnimeInteractor.swift in Sources */,
-				25988E4C212B003100199DE0 /* AnimeCell.swift in Sources */,
 				257ED93C211C733800E82B27 /* AddAnimeBoundaryModels.swift in Sources */,
 				252C4673211E6BC700938CA1 /* ListAnimeConfigurator.swift in Sources */,
 				25FC5042211E170100E058F4 /* AnimeDatabase.swift in Sources */,

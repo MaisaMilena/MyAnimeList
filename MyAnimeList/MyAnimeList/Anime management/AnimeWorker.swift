@@ -7,7 +7,10 @@
 //
 
 import UIKit
-
+/**
+Intermediate layer between the app Request and the database.
+ As the app is very small, is used a single Worker for both Scenes.
+ */
 class AnimeWorker {
     /**
      Add a new anime on the database

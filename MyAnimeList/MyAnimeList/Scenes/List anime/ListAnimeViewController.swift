@@ -12,19 +12,20 @@ import UIKit
     Class to control the view of the scene.
  */
 class ListAnimeViewController: UITableViewController, ListAnimePresenterOutput {
+
+    // Delegate
     var output: ListAnimeInteractorInput!
     var router: ListAnimeRouter!
     
-    var qtdAnime: Int = 0
-    var animes: [Anime] = []
+    // Anime information
+    private var qtdAnime: Int = 0
+    private var animes: [Anime] = []
     
-    // MARK: - View elements
-//    @IBOutlet weak var tableViewController: UITableView!
+    // View elements
     @IBOutlet weak var animeStatus: UISegmentedControl!
     
     // MARK: Object lifecycle
-    init() { 
-
+    init() {
         super.init(nibName: nil, bundle: nil)
         ListAnimeConfigurator.inject(dependenciesFor: self)
         
@@ -37,7 +38,7 @@ class ListAnimeViewController: UITableViewController, ListAnimePresenterOutput {
         ListAnimeConfigurator.inject(dependenciesFor: self)
     }
     
-    // MARK: View lifecycle
+    // MARK: - View lifecycle
     override func viewDidLoad() {
         let request = ListAnime.Request.init(animeCategory: .toWatch)
         output.getAnimes(request)
@@ -47,23 +48,30 @@ class ListAnimeViewController: UITableViewController, ListAnimePresenterOutput {
         tableView.register(nib, forCellReuseIdentifier: "animeCellIdentifier")
     }
     
-    // MARK: Segues
+    override func viewWillAppear(_ animated: Bool) {
+        // Reloads the content of table view
+        tableView.reloadData()
+    }
+
+    // MARK: - Event handling
     @IBAction func addAnime(_ sender: Any) {
         router.homeToAddAnime()
-        print("Add anime")
     }
  
+    /**
+     Updates the content of table view for Anime Watched and Anime To Watch
+     */
     @IBAction func animeStatusSelection(_ sender: Any) {
-        print("Segmented clicked. Value: \(animeStatus.selectedSegmentIndex)")
         // index 0 is toWatch category
         let category = animeStatus.selectedSegmentIndex == 0 ? AnimeStatusType.toWatch : AnimeStatusType.watched
         
+        // make a request for interactor
         let request = ListAnime.Request.init(animeCategory: category)
         output.getAnimes(request)
-        // Reloads the content
+        
+        // Reloads the content of table view
         tableView.reloadData()
     }
-    
     
     // MARK: Display logic
     func displayAnime(_ response: ListAnime.Response) {

@@ -12,6 +12,8 @@ import UIKit
     Class to control the view of the scene.
  */
 class AddAnimeViewController: UIViewController, AddAnimePresenterOutput {
+    
+    // Delegate
     var output: AddAnimeInteractorInput!
     var router: AddAnimeRouter!
     
@@ -20,7 +22,6 @@ class AddAnimeViewController: UIViewController, AddAnimePresenterOutput {
     @IBOutlet weak var animeDescription: UITextView!
     @IBOutlet weak var rating: UISlider!
     @IBOutlet weak var isWatched: UISwitch!
-    
     
     // MARK: - Object lifecycle
     init() {
@@ -53,8 +54,6 @@ class AddAnimeViewController: UIViewController, AddAnimePresenterOutput {
     
     // MARK: - Display logic
     func displayMessage(_ isAnimeAdded: AddAnime.Response) {
-        print("Is anime added on database? \(isAnimeAdded.addAnimeAction)")
-        
         router.navigateToHome()
     }
 }

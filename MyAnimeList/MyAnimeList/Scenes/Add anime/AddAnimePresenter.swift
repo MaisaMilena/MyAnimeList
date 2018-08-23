@@ -10,6 +10,9 @@ import UIKit
 
 // MARK: Boundary protocol
 protocol AddAnimePresenterOutput: class {
+    /**
+     Displays a message about "add anime" action
+     */
     func displayMessage(_ isAnimeAdded: AddAnime.Response)
 }
 
@@ -18,6 +21,8 @@ protocol AddAnimePresenterOutput: class {
     Class to format the data response from the Interactor and pass the result view model to the View Controller
  */
 class AddAnimePresenter: AddAnimeInteractorOutput {
+    
+    // View Controller
     var output: AddAnimePresenterOutput!
     
     // MARK: Presentation logic

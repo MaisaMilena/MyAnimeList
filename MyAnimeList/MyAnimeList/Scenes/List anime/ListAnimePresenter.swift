@@ -10,7 +10,15 @@ import UIKit
 
 // MARK: Boundary protocol
 protocol ListAnimePresenterOutput: class {
+    /**
+     Defines what will me presented about an anime
+     - parameter response: response structure. The raw data are presented
+     */
     func displayAnime(_ response: ListAnime.Response)
+    /**
+     Used to get the quantity of animes
+     - parameter qtd: the quantity of animes in the database
+     */
     func getQtdAnime(qtd: Int)
 }
 
@@ -20,7 +28,6 @@ protocol ListAnimePresenterOutput: class {
  */
 class ListAnimePresenter: ListAnimeInteractorOutput {
 
-    
    // View Controller
     weak var output: ListAnimePresenterOutput?
     

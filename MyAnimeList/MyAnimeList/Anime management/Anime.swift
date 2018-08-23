@@ -8,7 +8,9 @@
 
 import UIKit
 
-// Defines the structure of an Anime object
+/**
+ Defines the structure of an Anime object
+ */
 struct Anime {
     var title: String?
     var description: String?
@@ -16,6 +18,10 @@ struct Anime {
     var status: AnimeStatusType?
 }
 
+/**
+ Defines the status of an anime.
+ Can be: watched, toWatch or none (not relevant to know)
+ */
 enum AnimeStatusType {
     case watched, toWatch, none
 }

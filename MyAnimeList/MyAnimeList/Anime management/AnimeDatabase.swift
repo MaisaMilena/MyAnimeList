@@ -8,13 +8,18 @@
 
 import UIKit
 
+/**
+ In memory simple database. Manage simple actions as store data, add and list objects
+ */
 class AnimeDatabase {
     private var animes: [Anime] = [Anime()]
     
     public static var instance = AnimeDatabase()
     
+    /**
+     Create some sample data
+     */
     private init() {
-        print("🦄 Init do AnimeDatabase")
         
         var saikiKusuo = Anime()
         saikiKusuo.title = "Saiki Kusuo no psi-nan"
@@ -40,15 +45,20 @@ class AnimeDatabase {
     }
 
     // MARK: database functions
+    /**
+     Add a new anime on the database
+     - parameter anime: an anime object
+     - returns: true if the anime was successfully added
+     */
     func add(anime: Anime) -> Bool {
         animes.append(anime)
-        print("Anime on database: ", anime.description)
         return animes.last?.title == anime.title ? true : false
     }
     
     /**
-     Get animes given a category or all animes if any category is in parameters
-     - parameter status: a status of an anime. If not specified, it's consideres to return all animes
+     Get animes given a category
+     - parameter status: a status of an anime. Use "none" to get all animes registered
+     - returns: a set of animes
      */
     func getAnimes(_ status: AnimeStatusType) -> [Anime]{
         switch status {

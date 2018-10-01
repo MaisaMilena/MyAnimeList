@@ -10,4 +10,10 @@ Simple sample of using the VIP ([Clean Swift](https://clean-swift.com/clean-swif
 **Configurator**: configures delegates dependency  
 **Model**: pass data through the classes' boundaries  
 
-![screenshot](Home%20screen.png)
+## Hacktoberfest
+For beginners:
+- You can add an Anime that you like on the database file (AnimeDatabase.swift)
+
+## Contribution
+- If you have a feature request, open an issue
+- If you want to contribute, submit a pull request

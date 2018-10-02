@@ -8,13 +8,30 @@
 
 import UIKit
 
+protocol AnimeDatabase {
+    /**
+     Add a new anime on the database
+     - parameter anime: an anime object
+     - returns: true if the anime was successfully added
+     */
+    func add(anime: Anime) -> Bool
+
+    /**
+     Get animes given a category
+     - parameter status: a status of an anime. Use "none" to get all animes registered
+     - returns: a set of animes
+     */
+    func getAnimes(_ status: AnimeStatusType) -> [Anime]
+    subscript(index: Int) -> Anime { get set }
+}
+
 /**
  In memory simple database. Manage simple actions as store data, add and list objects
  */
-class AnimeDatabase {
+class InMemoryAnimeDatabase: AnimeDatabase {
     private var animes: [Anime] = [Anime()]
     
-    public static var instance = AnimeDatabase()
+    public static var instance = InMemoryAnimeDatabase()
     
     /**
      Create some sample data
@@ -45,21 +62,12 @@ class AnimeDatabase {
     }
 
     // MARK: database functions
-    /**
-     Add a new anime on the database
-     - parameter anime: an anime object
-     - returns: true if the anime was successfully added
-     */
+
     func add(anime: Anime) -> Bool {
         animes.append(anime)
         return animes.last?.title == anime.title ? true : false
     }
-    
-    /**
-     Get animes given a category
-     - parameter status: a status of an anime. Use "none" to get all animes registered
-     - returns: a set of animes
-     */
+
     func getAnimes(_ status: AnimeStatusType) -> [Anime]{
         switch status {
         case .toWatch:

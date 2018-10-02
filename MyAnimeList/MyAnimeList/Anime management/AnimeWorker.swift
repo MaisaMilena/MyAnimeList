@@ -17,8 +17,9 @@ class AnimeWorker {
      - parameter request: a Request Model to add animes
      - returns: true if the anime was successfuly added
      */
-    static func addAnime(request: AddAnime.Request) -> Bool {
-        let isAnimeAdded = AnimeDatabase.instance.add(anime: request.anime)
+    static func addAnime(request: AddAnime.Request,
+                         database: AnimeDatabase = InMemoryAnimeDatabase.instance) -> Bool {
+        let isAnimeAdded = database.add(anime: request.anime)
         return isAnimeAdded
     }
     
@@ -27,7 +28,8 @@ class AnimeWorker {
      - parameter request: a Request Model to list animes
      - returns: a list of anime
      */
-    static func getAnimes(request: ListAnime.Request) -> ListAnime.Response {
+    static func getAnimes(request: ListAnime.Request,
+                          database: AnimeDatabase = InMemoryAnimeDatabase.instance) -> ListAnime.Response {
         var category: ListAnime.Request
         switch request.animeCategory {
         case .toWatch:
@@ -38,7 +40,7 @@ class AnimeWorker {
         default:
             category = ListAnime.Request.init(animeCategory: .none)
         }
-        let animes = AnimeDatabase.instance.getAnimes(category.animeCategory)
+        let animes = database.getAnimes(category.animeCategory)
         return ListAnime.Response.init(animes: animes)
     }
     

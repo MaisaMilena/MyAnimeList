@@ -12,16 +12,16 @@ import UIKit
  Defines the structure of an Anime object
  */
 struct Anime {
-    var title: String?
-    var description: String?
-    var rating: Int?
-    var status: AnimeStatusType?
+    let title: String
+    let description: String
+    let rating: Int
+    let status: AnimeStatusType
 }
 
 /**
  Defines the status of an anime.
  Can be: watched, toWatch or none (not relevant to know)
  */
-enum AnimeStatusType {
+enum AnimeStatusType: String {
     case watched, toWatch, none
 }

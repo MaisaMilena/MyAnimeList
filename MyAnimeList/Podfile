@@ -1,0 +1,5 @@
+target 'MyAnimeList' do
+  use_frameworks!
+
+  pod 'RealmSwift'
+end

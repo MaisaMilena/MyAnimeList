@@ -1,0 +1,10 @@
+pod 'RealmSwift'target 'MyAnimeList' do
+  use_frameworks!
+
+  pod 'RealmSwift'
+
+  target 'MyAnimeListTests' do
+    inherit! :search_paths
+  end
+
+end

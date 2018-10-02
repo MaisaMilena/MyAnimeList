@@ -22,7 +22,6 @@ protocol AnimeDatabase {
      - returns: a set of animes
      */
     func getAnimes(_ status: AnimeStatusType) -> [Anime]
-    subscript(index: Int) -> Anime { get set }
 }
 
 /**

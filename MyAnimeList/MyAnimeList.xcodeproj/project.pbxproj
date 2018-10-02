@@ -29,6 +29,9 @@
 		25F83CE7211BDF4800EADCA4 /* MyAnimeListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F83CE6211BDF4800EADCA4 /* MyAnimeListTests.swift */; };
 		25FC5040211E164C00E058F4 /* Anime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FC503F211E164C00E058F4 /* Anime.swift */; };
 		25FC5042211E170100E058F4 /* AnimeDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FC5041211E170100E058F4 /* AnimeDatabase.swift */; };
+		5701E8C457DA17A82958E53F /* Pods_MyAnimeList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0A1975B781060134F6059E6 /* Pods_MyAnimeList.framework */; };
+		A3C0C6292163202600DBD0E9 /* RealmDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C0C6282163202600DBD0E9 /* RealmDatabase.swift */; };
+		A3C36120216321DB0046B2C3 /* Anime+Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C3611F216321DB0046B2C3 /* Anime+Realm.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +71,11 @@
 		25F83CE8211BDF4800EADCA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		25FC503F211E164C00E058F4 /* Anime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anime.swift; sourceTree = "<group>"; };
 		25FC5041211E170100E058F4 /* AnimeDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeDatabase.swift; sourceTree = "<group>"; };
+		A3C0C6282163202600DBD0E9 /* RealmDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDatabase.swift; sourceTree = "<group>"; };
+		A3C3611F216321DB0046B2C3 /* Anime+Realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Anime+Realm.swift"; sourceTree = "<group>"; };
+		A6DEC39DC2F575646D7A3D26 /* Pods-MyAnimeList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyAnimeList.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyAnimeList/Pods-MyAnimeList.release.xcconfig"; sourceTree = "<group>"; };
+		B53F904C54DE508490B3313B /* Pods-MyAnimeList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyAnimeList.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyAnimeList/Pods-MyAnimeList.debug.xcconfig"; sourceTree = "<group>"; };
+		E0A1975B781060134F6059E6 /* Pods_MyAnimeList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyAnimeList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5701E8C457DA17A82958E53F /* Pods_MyAnimeList.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,7 +101,9 @@
 			isa = PBXGroup;
 			children = (
 				25FC503F211E164C00E058F4 /* Anime.swift */,
+				A3C3611F216321DB0046B2C3 /* Anime+Realm.swift */,
 				25FC5041211E170100E058F4 /* AnimeDatabase.swift */,
+				A3C0C6282163202600DBD0E9 /* RealmDatabase.swift */,
 				252C4665211E24A200938CA1 /* AnimeWorker.swift */,
 			);
 			path = "Anime management";
@@ -139,6 +150,8 @@
 				25F83CD0211BDF4500EADCA4 /* MyAnimeList */,
 				25F83CE5211BDF4800EADCA4 /* MyAnimeListTests */,
 				25F83CCF211BDF4500EADCA4 /* Products */,
+				D81E7FB09FAE40C227B014D8 /* Pods */,
+				4A36C3E56589842269D933C6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -193,6 +206,23 @@
 			path = "Add anime";
 			sourceTree = "<group>";
 		};
+		4A36C3E56589842269D933C6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E0A1975B781060134F6059E6 /* Pods_MyAnimeList.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D81E7FB09FAE40C227B014D8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B53F904C54DE508490B3313B /* Pods-MyAnimeList.debug.xcconfig */,
+				A6DEC39DC2F575646D7A3D26 /* Pods-MyAnimeList.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -200,9 +230,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 25F83CEB211BDF4800EADCA4 /* Build configuration list for PBXNativeTarget "MyAnimeList" */;
 			buildPhases = (
+				E01121CDD3C9C49775F35D7E /* [CP] Check Pods Manifest.lock */,
 				25F83CCA211BDF4500EADCA4 /* Sources */,
 				25F83CCB211BDF4500EADCA4 /* Frameworks */,
 				25F83CCC211BDF4500EADCA4 /* Resources */,
+				E68AD01C53AD7B40AB5D12EE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -290,6 +322,47 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		E01121CDD3C9C49775F35D7E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MyAnimeList-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E68AD01C53AD7B40AB5D12EE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MyAnimeList/Pods-MyAnimeList-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyAnimeList/Pods-MyAnimeList-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		25F83CCA211BDF4500EADCA4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -309,6 +382,8 @@
 				25FC5040211E164C00E058F4 /* Anime.swift in Sources */,
 				252C4666211E24A200938CA1 /* AnimeWorker.swift in Sources */,
 				252D66C3212C58F900943FBE /* AnimeTableViewCell.swift in Sources */,
+				A3C36120216321DB0046B2C3 /* Anime+Realm.swift in Sources */,
+				A3C0C6292163202600DBD0E9 /* RealmDatabase.swift in Sources */,
 				257ED932211C72A100E82B27 /* AddAnimeViewController.swift in Sources */,
 				25F83CD2211BDF4500EADCA4 /* AppDelegate.swift in Sources */,
 				257ED93E211C734900E82B27 /* AddAnimeConfigurator.swift in Sources */,
@@ -469,6 +544,7 @@
 		};
 		25F83CEC211BDF4800EADCA4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B53F904C54DE508490B3313B /* Pods-MyAnimeList.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -487,6 +563,7 @@
 		};
 		25F83CED211BDF4800EADCA4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A6DEC39DC2F575646D7A3D26 /* Pods-MyAnimeList.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

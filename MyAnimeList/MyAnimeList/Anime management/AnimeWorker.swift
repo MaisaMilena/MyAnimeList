@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import RealmSwift
+
+let realmDatabase = RealmDatabase(realm: try! Realm())
+
 /**
 Intermediate layer between the app Request and the database.
  As the app is very small, is used a single Worker for both Scenes.
@@ -18,7 +22,7 @@ class AnimeWorker {
      - returns: true if the anime was successfuly added
      */
     static func addAnime(request: AddAnime.Request,
-                         database: AnimeDatabase = InMemoryAnimeDatabase.instance) -> Bool {
+                         database: AnimeDatabase = realmDatabase) -> Bool {
         let isAnimeAdded = database.add(anime: request.anime)
         return isAnimeAdded
     }
@@ -29,7 +33,7 @@ class AnimeWorker {
      - returns: a list of anime
      */
     static func getAnimes(request: ListAnime.Request,
-                          database: AnimeDatabase = InMemoryAnimeDatabase.instance) -> ListAnime.Response {
+                          database: AnimeDatabase = realmDatabase) -> ListAnime.Response {
         var category: ListAnime.Request
         switch request.animeCategory {
         case .toWatch:

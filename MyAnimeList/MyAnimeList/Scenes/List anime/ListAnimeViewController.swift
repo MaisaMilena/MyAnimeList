@@ -98,7 +98,7 @@ extension ListAnimeViewController {
         let anime = animes[indexPath.row]
         cell.animeTitle.text = anime.title
         cell.animeDescription.text = anime.description
-        cell.ratingScore.text = String(anime.rating!)
+        cell.ratingScore.text = String(anime.rating)
         return cell 
     }
     

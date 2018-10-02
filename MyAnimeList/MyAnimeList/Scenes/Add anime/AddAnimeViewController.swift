@@ -41,15 +41,21 @@ class AddAnimeViewController: UIViewController, AddAnimePresenterOutput {
     
     // MARK: - Event handling
     @IBAction func submitAnimeAction(_ sender: Any) {
-        var anime = Anime()
-        anime.title = animeTitle.text
-        anime.description = animeDescription.text
-        anime.rating = Int(rating.value)
-        anime.status = isWatched.isOn ? AnimeStatusType.watched : AnimeStatusType.toWatch
-        
+        guard let title = animeTitle?.text,
+              let description = animeDescription?.text,
+              let rating = rating?.value,
+              let watched = isWatched?.isOn else {
+                return
+        }
+
+        let status: AnimeStatusType = watched ? .watched : .toWatch
+        let anime = Anime(title: title,
+                          description: description,
+                          rating: Int(rating),
+                          status: status)
+
         let request = AddAnime.Request(anime: anime)
         output.addAnimeOnDatabase(request)
-        
     }
     
     // MARK: - Display logic

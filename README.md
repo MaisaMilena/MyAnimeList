@@ -12,7 +12,7 @@ Simple sample of using the VIP ([Clean Swift](https://clean-swift.com/clean-swif
 
 ## Hacktoberfest
 For beginners:
-- You can add an Anime that you like on the database file (AnimeDatabase.swift)
+- You can add an Anime that you like on the Realm Database file (RealmDatabase.swift)
 
 ## Contribution
 - If you have a feature request, open an issue

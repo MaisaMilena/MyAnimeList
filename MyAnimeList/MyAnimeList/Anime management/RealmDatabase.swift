@@ -43,10 +43,15 @@ final class RealmDatabase: AnimeDatabase {
                            description: "Adapted from the critically acclaimed visual novel by 5pb. and Nitroplus, Steins;Gate takes Okabe through the depths of scientific theory and practicality. Forced across the diverging threads of past and present, Okabe must shoulder the burdens that come with holding the key to the realm of time",
                            rating: 5,
                            status: .watched)
+        let kuroko = Anime(title: "Kuroko no Basuke",
+                           description: "Kuroko no Basket follows the journey of Seirin's players as they attempt to become the best Japanese high school team by winning the Interhigh Championship. To reach their goal, they have to cross pathways with several powerful teams, some of which have one of the five players with godlike abilities, whom Kuroko and Taiga make a pact to defeat",
+                           rating: 4,
+                           status: .toWatch)
         add(anime: saikiKusuo)
         add(anime: melancoly)
         add(anime: steins)
         add(anime: hunter)
+        add(anime: kuroko)
     }
 
     func add(anime: Anime) -> Bool {

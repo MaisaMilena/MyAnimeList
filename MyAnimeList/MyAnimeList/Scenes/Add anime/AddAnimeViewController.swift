@@ -20,8 +20,9 @@ class AddAnimeViewController: UIViewController, AddAnimePresenterOutput {
     // MARK: - User input
     @IBOutlet weak var animeTitle: UITextField!
     @IBOutlet weak var animeDescription: UITextView!
-    @IBOutlet weak var rating: UISlider!
     @IBOutlet weak var isWatched: UISwitch!
+    @IBOutlet private weak var ratingStackView: UIStackView!
+    private var rating: Int = 0
     
     // MARK: - Object lifecycle
     init() {
@@ -43,7 +44,6 @@ class AddAnimeViewController: UIViewController, AddAnimePresenterOutput {
     @IBAction func submitAnimeAction(_ sender: Any) {
         guard let title = animeTitle?.text,
               let description = animeDescription?.text,
-              let rating = rating?.value,
               let watched = isWatched?.isOn else {
                 return
         }
@@ -58,8 +58,20 @@ class AddAnimeViewController: UIViewController, AddAnimePresenterOutput {
         output.addAnimeOnDatabase(request)
     }
     
+    @IBAction func onTouchUpRating(_ sender: UIButton) {
+        rating = sender.tag
+        updateRatingView()
+    }
+    
     // MARK: - Display logic
     func displayMessage(_ isAnimeAdded: AddAnime.Response) {
         router.navigateToHome()
+    }
+    
+    private func updateRatingView() {
+        for i in 0..<5 {
+            let button = ratingStackView.arrangedSubviews[i] as! UIButton
+            button.isSelected = i < rating
+        }
     }
 }

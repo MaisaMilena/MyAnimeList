@@ -47,15 +47,21 @@ class AddAnimeViewController: UIViewController, AddAnimePresenterOutput {
               let watched = isWatched?.isOn else {
                 return
         }
-
-        let status: AnimeStatusType = watched ? .watched : .toWatch
-        let anime = Anime(title: title,
-                          description: description,
-                          rating: Int(rating),
-                          status: status)
-
-        let request = AddAnime.Request(anime: anime)
-        output.addAnimeOnDatabase(request)
+        if title.isEmpty && description.isEmpty {
+            let alertVC = UIAlertController(title: "Oops", message: "Title and description must not be empty", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "Got it", style: .cancel, handler: nil)
+            alertVC.addAction(ok)
+            present(alertVC, animated: true, completion: nil)
+        } else {
+            let status: AnimeStatusType = watched ? .watched : .toWatch
+            let anime = Anime(title: title,
+                              description: description,
+                              rating: Int(rating),
+                              status: status)
+            
+            let request = AddAnime.Request(anime: anime)
+            output.addAnimeOnDatabase(request)
+        }
     }
     
     @IBAction func onTouchUpRating(_ sender: UIButton) {

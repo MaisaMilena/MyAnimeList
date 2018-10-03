@@ -32,7 +32,6 @@
 		5701E8C457DA17A82958E53F /* Pods_MyAnimeList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0A1975B781060134F6059E6 /* Pods_MyAnimeList.framework */; };
 		A3C0C6292163202600DBD0E9 /* RealmDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C0C6282163202600DBD0E9 /* RealmDatabase.swift */; };
 		A3C36120216321DB0046B2C3 /* Anime+Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C3611F216321DB0046B2C3 /* Anime+Realm.swift */; };
-		A3C3612221632B270046B2C3 /* AppDelegate+DatabaseMigration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C3612121632B270046B2C3 /* AppDelegate+DatabaseMigration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,7 +73,6 @@
 		25FC5041211E170100E058F4 /* AnimeDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeDatabase.swift; sourceTree = "<group>"; };
 		A3C0C6282163202600DBD0E9 /* RealmDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDatabase.swift; sourceTree = "<group>"; };
 		A3C3611F216321DB0046B2C3 /* Anime+Realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Anime+Realm.swift"; sourceTree = "<group>"; };
-		A3C3612121632B270046B2C3 /* AppDelegate+DatabaseMigration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+DatabaseMigration.swift"; sourceTree = "<group>"; };
 		A6DEC39DC2F575646D7A3D26 /* Pods-MyAnimeList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyAnimeList.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyAnimeList/Pods-MyAnimeList.release.xcconfig"; sourceTree = "<group>"; };
 		B53F904C54DE508490B3313B /* Pods-MyAnimeList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyAnimeList.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyAnimeList/Pods-MyAnimeList.debug.xcconfig"; sourceTree = "<group>"; };
 		E0A1975B781060134F6059E6 /* Pods_MyAnimeList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyAnimeList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,13 +122,12 @@
 			isa = PBXGroup;
 			children = (
 				25F83CD1211BDF4500EADCA4 /* AppDelegate.swift */,
-				A3C3612121632B270046B2C3 /* AppDelegate+DatabaseMigration.swift */,
 				25F83CD8211BDF4800EADCA4 /* Assets.xcassets */,
 				25F83CDA211BDF4800EADCA4 /* LaunchScreen.storyboard */,
 				25F83CDD211BDF4800EADCA4 /* Info.plist */,
 			);
 			name = "Supporting files";
-			path = ..;
+			path = MyAnimeList;
 			sourceTree = "<group>";
 		};
 		252C4667211E652100938CA1 /* List anime */ = {
@@ -151,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				25F83CD0211BDF4500EADCA4 /* MyAnimeList */,
+				250B6C3C212E4311009B9463 /* Supporting files */,
 				25F83CE5211BDF4800EADCA4 /* MyAnimeListTests */,
 				25F83CCF211BDF4500EADCA4 /* Products */,
 				D81E7FB09FAE40C227B014D8 /* Pods */,
@@ -191,7 +189,6 @@
 				25F83CD5211BDF4500EADCA4 /* Main.storyboard */,
 				25F83CF2211BE0C200EADCA4 /* Add anime */,
 				252C4667211E652100938CA1 /* List anime */,
-				250B6C3C212E4311009B9463 /* Supporting files */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -379,7 +376,6 @@
 				257ED936211C72EB00E82B27 /* AddAnimePresenter.swift in Sources */,
 				252C4671211E6BBB00938CA1 /* ListAnimeBoundaryModels.swift in Sources */,
 				257ED934211C72B100E82B27 /* AddAnimeInteractor.swift in Sources */,
-				A3C3612221632B270046B2C3 /* AppDelegate+DatabaseMigration.swift in Sources */,
 				252C4669211E6B7D00938CA1 /* ListAnimeViewController.swift in Sources */,
 				252C466D211E6BA100938CA1 /* ListAnimePresenter.swift in Sources */,
 				257ED938211C72F700E82B27 /* AddAnimeRouter.swift in Sources */,

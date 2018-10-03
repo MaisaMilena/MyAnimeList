@@ -29,6 +29,11 @@ final class RealmDatabase: AnimeDatabase {
                                rating: 5,
                                status: .toWatch)
         
+        let hunter = Anime(title: "Hunter x Hunter",
+                               description: "Abundant riches, hidden treasures, fearsome monsters, and exotic creatures are scattered around the world... Gon departs on a journey to become a Pro Hunter who risks his life in search of the unknown. Along the way, he meets other applicants for the Hunter exam: Kurapika, Leorio, and Killua. Can Gon pass the rigorous challenges of the Hunter exam and become the best Hunter in the world!? His wild and epic journey is about to begin!!",
+                               rating: 5,
+                               status: .toWatch)
+        
         let melancoly = Anime(title: "The Melancholy of Haruhi Suzumiya",
                               description: "Haruhi Suzumiya was about this girl named The Melancholy, who was desperately trying to convince herself that she was living inside of an anime, and that she was secretly god",
                               rating: 5,

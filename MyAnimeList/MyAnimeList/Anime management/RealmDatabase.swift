@@ -46,6 +46,7 @@ final class RealmDatabase: AnimeDatabase {
         add(anime: saikiKusuo)
         add(anime: melancoly)
         add(anime: steins)
+        add(anime: hunter)
     }
 
     func add(anime: Anime) -> Bool {

@@ -47,7 +47,7 @@ class AddAnimeViewController: UIViewController, AddAnimePresenterOutput {
               let watched = isWatched?.isOn else {
                 return
         }
-        if title.isEmpty && description.isEmpty {
+        if title.isEmpty || description.isEmpty {
             let alertVC = UIAlertController(title: "Oops", message: "Title and description must not be empty", preferredStyle: .alert)
             let ok = UIAlertAction(title: "Got it", style: .cancel, handler: nil)
             alertVC.addAction(ok)

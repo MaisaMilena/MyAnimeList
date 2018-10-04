@@ -51,12 +51,19 @@ final class RealmDatabase: AnimeDatabase {
                            description: "One-Punch Man tells the story of Saitama, an extremely overpowered superhero who has grown bored by the absence of challenge in his fight against evil and seeks to find a worthy opponent.",
                            rating: 5,
                            status: .toWatch)
+        
+        let maouSama = Anime(title: "Hataraku Maou-sama!",
+                             description: "Powerless in a world without magic, Satan assumes the guise of a human named Sadao Maou and begins working at MgRonald's—a local fast-food restaurant.",
+                             rating: 5,
+                             status: .toWatch)
+        
         add(anime: saikiKusuo)
         add(anime: melancoly)
         add(anime: steins)
         add(anime: hunter)
         add(anime: kuroko)
         add(anime: punch)
+        add(anime: maouSama)
     }
 
     func add(anime: Anime) -> Bool {

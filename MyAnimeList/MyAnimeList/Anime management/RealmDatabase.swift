@@ -51,12 +51,17 @@ final class RealmDatabase: AnimeDatabase {
                            description: "One-Punch Man tells the story of Saitama, an extremely overpowered superhero who has grown bored by the absence of challenge in his fight against evil and seeks to find a worthy opponent.",
                            rating: 5,
                            status: .toWatch)
+        let avatar = Anime(title: "Avatar: The Last Airbender",
+                           description: "Human civilization is divided into four nations, named after the four classical elements: the Water Tribes, the Earth Kingdom, the Fire Nation, and the Air Nomads. Each nation has a distinct society in which select people, known as "benders" (waterbenders, earthbenders, firebenders and airbenders), have the ability to telekinetically manipulate and control their nation's element using martial arts. Only the Avatar has the ability to bend all four elements.",
+                           rating: 5,
+                           status: .toWatch)
         add(anime: saikiKusuo)
         add(anime: melancoly)
         add(anime: steins)
         add(anime: hunter)
         add(anime: kuroko)
         add(anime: punch)
+        add(anime: avatar)
     }
 
     func add(anime: Anime) -> Bool {

@@ -47,11 +47,16 @@ final class RealmDatabase: AnimeDatabase {
                            description: "Kuroko no Basket follows the journey of Seirin's players as they attempt to become the best Japanese high school team by winning the Interhigh Championship. To reach their goal, they have to cross pathways with several powerful teams, some of which have one of the five players with godlike abilities, whom Kuroko and Taiga make a pact to defeat",
                            rating: 4,
                            status: .toWatch)
+        let punch = Anime(title: "One Punch-Man",
+                           description: "One-Punch Man tells the story of Saitama, an extremely overpowered superhero who has grown bored by the absence of challenge in his fight against evil and seeks to find a worthy opponent.",
+                           rating: 5,
+                           status: .toWatch)
         add(anime: saikiKusuo)
         add(anime: melancoly)
         add(anime: steins)
         add(anime: hunter)
         add(anime: kuroko)
+        add(anime: punch)
     }
 
     func add(anime: Anime) -> Bool {

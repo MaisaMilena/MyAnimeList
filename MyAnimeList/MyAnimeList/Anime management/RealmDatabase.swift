@@ -53,7 +53,7 @@ final class RealmDatabase: AnimeDatabase {
                            status: .toWatch)
 
         let avatar = Anime(title: "Avatar: The Last Airbender",
-                           description: "Human civilization is divided into four nations, named after the four classical elements: the Water Tribes, the Earth Kingdom, the Fire Nation, and the Air Nomads. Each nation has a distinct society in which select people, known as "benders" (waterbenders, earthbenders, firebenders and airbenders), have the ability to telekinetically manipulate and control their nation's element using martial arts. Only the Avatar has the ability to bend all four elements.",
+                           description: "Human civilization is divided into four nations, named after the four classical elements: the Water Tribes, the Earth Kingdom, the Fire Nation, and the Air Nomads. Each nation has a distinct society in which select people, known as 'benders' (waterbenders, earthbenders, firebenders and airbenders), have the ability to telekinetically manipulate and control their nation's element using martial arts. Only the Avatar has the ability to bend all four elements.",
                            rating: 5,
                            status: .toWatch)
 
@@ -63,6 +63,11 @@ final class RealmDatabase: AnimeDatabase {
                              rating: 5,
                              status: .toWatch)
         
+        let fullMetal = Anime(title: "Full Metal Alchemist",
+                              description: "The resurrection failed, leaving Edward without an arm and a leg and Alphonse's soul attached to a suit of armor. Now they roam around the country trying to find a way to restore their bodies with alchemy..",
+                              rating: 5,
+                              status: .toWatch)
+        
         add(anime: saikiKusuo)
         add(anime: melancoly)
         add(anime: steins)
@@ -71,6 +76,7 @@ final class RealmDatabase: AnimeDatabase {
         add(anime: punch)
         add(anime: avatar)
         add(anime: maouSama)
+        add(anime: fullMetal)
     }
 
     func add(anime: Anime) -> Bool {

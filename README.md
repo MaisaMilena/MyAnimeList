@@ -10,6 +10,15 @@ Simple sample of using the VIP ([Clean Swift](https://clean-swift.com/clean-swif
 **Configurator**: configures delegates dependency  
 **Model**: pass data through the classes' boundaries  
 
+## Project Setup
+
+All pods are already commited, but if you want to install others, do:
+- Make sure you have ruby > 2.3.7
+- Update [Podfile](https://github.com/MaisaMilena/MyAnimeList/blob/master/MyAnimeList/Podfile)
+- Run bundle install
+- Run bundle exec pod install
+- Make sure you commit the pods, Podfile and Podfile.lock
+
 ## Hacktoberfest
 For beginners:
 - You can add an Anime that you like on the Realm Database file (RealmDatabase.swift)

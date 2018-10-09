@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		251D7BFD216CD1A2003FF6FA /* AddAnime.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 251D7BFC216CD1A2003FF6FA /* AddAnime.storyboard */; };
 		252C4666211E24A200938CA1 /* AnimeWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252C4665211E24A200938CA1 /* AnimeWorker.swift */; };
 		252C4669211E6B7D00938CA1 /* ListAnimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252C4668211E6B7D00938CA1 /* ListAnimeViewController.swift */; };
 		252C466B211E6B9500938CA1 /* ListAnimeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252C466A211E6B9500938CA1 /* ListAnimeInteractor.swift */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		251D7BFC216CD1A2003FF6FA /* AddAnime.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddAnime.storyboard; sourceTree = "<group>"; };
 		252C4665211E24A200938CA1 /* AnimeWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeWorker.swift; sourceTree = "<group>"; };
 		252C4668211E6B7D00938CA1 /* ListAnimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAnimeViewController.swift; sourceTree = "<group>"; };
 		252C466A211E6B9500938CA1 /* ListAnimeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAnimeInteractor.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				25F83CD5211BDF4500EADCA4 /* Main.storyboard */,
+				251D7BFC216CD1A2003FF6FA /* AddAnime.storyboard */,
 				25F83CF2211BE0C200EADCA4 /* Add anime */,
 				252C4667211E652100938CA1 /* List anime */,
 			);
@@ -306,6 +309,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				251D7BFD216CD1A2003FF6FA /* AddAnime.storyboard in Resources */,
 				252D66C4212C58F900943FBE /* AnimeTableViewCell.xib in Resources */,
 				25F83CDC211BDF4800EADCA4 /* LaunchScreen.storyboard in Resources */,
 				25F83CD9211BDF4800EADCA4 /* Assets.xcassets in Resources */,

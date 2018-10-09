@@ -71,7 +71,13 @@ class AddAnimeViewController: UIViewController, AddAnimePresenterOutput {
     
     // MARK: - Display logic
     func displayMessage(_ isAnimeAdded: AddAnime.Response) {
-        router.navigateToHome()
+        let alertVC = UIAlertController(title: "Yeah!", message: "Anime added with success", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "Got it", style: .default) { (action) in
+            self.router.navigateToHome()
+        }
+        alertVC.addAction(ok)
+        present(alertVC, animated: true, completion: nil)
+        
     }
     
     private func updateRatingView() {

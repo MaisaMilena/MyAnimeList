@@ -43,10 +43,12 @@ final class RealmDatabase: AnimeDatabase {
                            description: "Adapted from the critically acclaimed visual novel by 5pb. and Nitroplus, Steins;Gate takes Okabe through the depths of scientific theory and practicality. Forced across the diverging threads of past and present, Okabe must shoulder the burdens that come with holding the key to the realm of time",
                            rating: 5,
                            status: .watched)
+        
         let kuroko = Anime(title: "Kuroko no Basuke",
                            description: "Kuroko no Basket follows the journey of Seirin's players as they attempt to become the best Japanese high school team by winning the Interhigh Championship. To reach their goal, they have to cross pathways with several powerful teams, some of which have one of the five players with godlike abilities, whom Kuroko and Taiga make a pact to defeat",
                            rating: 4,
                            status: .toWatch)
+        
         let punch = Anime(title: "One Punch-Man",
                            description: "One-Punch Man tells the story of Saitama, an extremely overpowered superhero who has grown bored by the absence of challenge in his fight against evil and seeks to find a worthy opponent.",
                            rating: 5,
@@ -56,8 +58,12 @@ final class RealmDatabase: AnimeDatabase {
                            description: "Human civilization is divided into four nations, named after the four classical elements: the Water Tribes, the Earth Kingdom, the Fire Nation, and the Air Nomads. Each nation has a distinct society in which select people, known as 'benders' (waterbenders, earthbenders, firebenders and airbenders), have the ability to telekinetically manipulate and control their nation's element using martial arts. Only the Avatar has the ability to bend all four elements.",
                            rating: 5,
                            status: .toWatch)
-
         
+        let madoka = Anime(title: "Puella Magi Madoka Magica",
+                       description: "A story of hope, despair, and friendship, Puella Magi Madoka Magica deals with the difficulties of being a magical girl and the price one has to pay to make a dream come true.",
+                       rating: 5,
+                       status: .toWatch)
+
         let maouSama = Anime(title: "Hataraku Maou-sama!",
                              description: "Powerless in a world without magic, Satan assumes the guise of a human named Sadao Maou and begins working at MgRonald's—a local fast-food restaurant.",
                              rating: 5,
@@ -77,6 +83,7 @@ final class RealmDatabase: AnimeDatabase {
         add(anime: avatar)
         add(anime: maouSama)
         add(anime: fullMetal)
+        add(anime: madoka)
     }
 
     func add(anime: Anime) -> Bool {

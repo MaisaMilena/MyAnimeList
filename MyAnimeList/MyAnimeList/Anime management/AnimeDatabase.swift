@@ -51,7 +51,9 @@ class InMemoryAnimeDatabase: AnimeDatabase {
                            rating: 5,
                            status: .watched)
         
-        self.animes = [saikiKusuo, melancoly, steins]
+        let jojo = Anime(title: "JoJo no Kimyou na Bouken", description: "JoJo's Bizarre Adventure tells the story of the Joestar family, a family whose various members discover they are destined to take down supernatural foes using powers that they possess. The story is split up into unique parts, each following one member of the Joestar family, who inevitably has a name that can be abbreviated to the titular \"JoJo\".", rating: 5, status: .toWatch)
+        
+        self.animes = [saikiKusuo, melancoly, steins, jojo]
     }
 
     // MARK: database functions

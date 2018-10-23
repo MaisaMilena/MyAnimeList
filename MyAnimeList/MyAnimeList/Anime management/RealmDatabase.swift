@@ -74,6 +74,11 @@ final class RealmDatabase: AnimeDatabase {
                               rating: 5,
                               status: .toWatch)
         
+        let captainTsubasa = Anime(title: "Captain Tsubasa", 
+                                   description: "Captain Tsubasa is the passionate story of an elementary school student whose thoughts and dreams revolve almost entirely around the love of soccer.", 
+                                   rating: 5, 
+                                   status: .toWatch)
+        
         add(anime: saikiKusuo)
         add(anime: melancoly)
         add(anime: steins)
@@ -83,6 +88,7 @@ final class RealmDatabase: AnimeDatabase {
         add(anime: avatar)
         add(anime: maouSama)
         add(anime: fullMetal)
+        add(anime: captainTsubasa)
         add(anime: madoka)
     }
 

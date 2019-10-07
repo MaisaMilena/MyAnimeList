@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -458,9 +458,11 @@
 				TargetAttributes = {
 					25F83CCD211BDF4500EADCA4 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1100;
 					};
 					25F83CE1211BDF4800EADCA4 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1100;
 						TestTargetID = 25F83CCD211BDF4500EADCA4;
 					};
 				};
@@ -789,7 +791,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.maisa.MyAnimeList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -808,7 +810,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.maisa.MyAnimeList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -828,7 +830,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.maisa.MyAnimeListTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyAnimeList.app/MyAnimeList";
 			};
@@ -849,7 +851,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.maisa.MyAnimeListTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyAnimeList.app/MyAnimeList";
 			};

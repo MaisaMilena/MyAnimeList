@@ -1,5 +1,9 @@
 target 'MyAnimeList' do
   use_frameworks!
 
-  pod 'RealmSwift'
+  # This fix crash on Xcode 11 - https://github.com/realm/realm-cocoa/issues/6163
+  pod 'RealmSwift',
+  git: 'https://github.com/realm/realm-cocoa.git',
+  branch: 'master',
+  submodules: true
 end

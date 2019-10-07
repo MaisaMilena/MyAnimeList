@@ -1,5 +1,3 @@
-#include <iostream>  // REMOVE
-
 /*************************************************************************
  *
  * REALM CONFIDENTIAL
@@ -69,13 +67,30 @@ namespace util {
 namespace network {
 namespace ssl {
 
-enum class Error {
+enum class Errors {
     certificate_rejected = 1,
 };
 
-const std::error_category& ssl_error_category();
+class ErrorCategory : public std::error_category {
+public:
+    const char* name() const noexcept override final;
+    std::string message(int) const override final;
+    bool equivalent(const std::error_code&, int) const noexcept override final;
+};
 
-std::error_condition make_error_condition(Error value);
+/// The error category associated with \ref Errors. The name of this category is
+/// `realm.util.network.ssl`.
+extern ErrorCategory error_category;
+
+inline std::error_code make_error_code(Errors err)
+{
+    return std::error_code(int(err), error_category);
+}
+
+inline std::error_condition make_error_condition(Errors err)
+{
+    return std::error_condition(int(err), error_category);
+}
 
 } // namespace ssl
 } // namespace network
@@ -84,26 +99,39 @@ std::error_condition make_error_condition(Error value);
 
 namespace std {
 
-template <>
-struct is_error_condition_enum<realm::util::network::ssl::Error> : public true_type {};
+template<> class is_error_condition_enum<realm::util::network::ssl::Errors> {
+public:
+    static const bool value = true;
+};
 
 } // namespace std
 
 namespace realm {
 namespace util {
 namespace network {
+
+class OpensslErrorCategory : public std::error_category {
+public:
+    const char* name() const noexcept override final;
+    std::string message(int) const override final;
+};
+
+/// The error category associated with error codes produced by the third-party
+/// library, OpenSSL. The name of this category is `openssl`.
+extern OpensslErrorCategory openssl_error_category;
+
+class SecureTransportErrorCategory : public std::error_category {
+public:
+    const char* name() const noexcept override final;
+    std::string message(int) const override final;
+};
+
+/// The error category associated with error codes produced by Apple's
+/// SecureTransport library. The name of this category is `securetransport`.
+extern SecureTransportErrorCategory secure_transport_error_category;
+
+
 namespace ssl {
-
-#if REALM_HAVE_OPENSSL
-
-const std::error_category& openssl_error_category();
-
-#elif REALM_HAVE_SECURE_TRANSPORT
-
-const std::error_category& secure_transport_error_category();
-
-#endif
-
 
 class ProtocolNotSupported;
 
@@ -1012,7 +1040,7 @@ inline void Stream::ssl_handshake(std::error_code& ec, Want& want) noexcept
     REALM_ASSERT(n == 0 || n == 1);
     if (want == Want::nothing && n == 0 && !ec) {
         // End of input on TCP socket
-        ec = network::premature_end_of_input;
+        ec = MiscExtErrors::premature_end_of_input;
     }
 }
 
@@ -1026,10 +1054,10 @@ inline std::size_t Stream::ssl_read(char* buffer, std::size_t size,
     if (want == Want::nothing && n == 0 && !ec) {
         // End of input on TCP socket
         if (SSL_get_shutdown(m_ssl) & SSL_RECEIVED_SHUTDOWN) {
-            ec = network::end_of_input;
+            ec = MiscExtErrors::end_of_input;
         }
         else {
-            ec = network::premature_end_of_input;
+            ec = MiscExtErrors::premature_end_of_input;
         }
     }
     return n;
@@ -1053,7 +1081,7 @@ inline std::size_t Stream::ssl_write(const char* data, std::size_t size,
     std::size_t n = ssl_perform(std::move(perform), ec, want);
     if (want == Want::nothing && n == 0 && !ec) {
         // End of input on TCP socket
-        ec = network::premature_end_of_input;
+        ec = MiscExtErrors::premature_end_of_input;
     }
     return n;
 }
@@ -1092,7 +1120,7 @@ inline bool Stream::ssl_shutdown(std::error_code& ec, Want& want) noexcept
         // end of input", and 1 means "full success" (peers shutdown alert has
         // now been received).
         if ((SSL_get_shutdown(m_ssl) & SSL_SENT_SHUTDOWN) == 0)
-            ec = network::premature_end_of_input;
+            ec = MiscExtErrors::premature_end_of_input;
     }
     return (n > 0);
 }
@@ -1215,15 +1243,15 @@ std::size_t Stream::ssl_perform(Oper oper, std::error_code& ec, Want& want) noex
                 // that errno should be consulted. However,
                 // errno = 0(Undefined error) in the observed case.
                 // At the moment. we will report
-                // premature_end_of_input.
+                // MiscExtErrors::premature_end_of_input.
                 // If we see this error case occurring in other situations in
                 // the future, we will have to update this case.
-                ec = network::premature_end_of_input;
+                ec = MiscExtErrors::premature_end_of_input;
             }
             want = Want::nothing;
             return 0;
         case SSL_ERROR_SSL:
-            ec = std::error_code(sys_error, openssl_error_category());
+            ec = std::error_code(sys_error, openssl_error_category);
             want = Want::nothing;
             return 0;
         default:
@@ -1316,13 +1344,13 @@ std::size_t Stream::ssl_perform(Oper oper, std::error_code& ec, Want& want) noex
     }
 
     if (result == errSSLClosedGraceful) {
-        ec = network::end_of_input;
+        ec = MiscExtErrors::end_of_input;
         want = Want::nothing;
         return n;
     }
 
     if (result == errSSLClosedAbort || result == errSSLClosedNoNotify) {
-        ec = network::premature_end_of_input;
+        ec = MiscExtErrors::premature_end_of_input;
         want = Want::nothing;
         return n;
     }
@@ -1336,7 +1364,7 @@ std::size_t Stream::ssl_perform(Oper oper, std::error_code& ec, Want& want) noex
         return n;
     }
 
-    ec = std::error_code(result, secure_transport_error_category());
+    ec = std::error_code(result, secure_transport_error_category);
     want = Want::nothing;
     return 0;
 }

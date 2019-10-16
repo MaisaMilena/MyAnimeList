@@ -36,6 +36,8 @@
 #import "results.hpp"
 #import "shared_realm.hpp"
 
+#import <realm/group.hpp>
+
 #import <objc/message.h>
 
 using namespace realm;
@@ -90,15 +92,14 @@ void RLMInitializeSwiftAccessorGenerics(__unsafe_unretained RLMObjectBase *const
     }
 
     for (RLMProperty *prop in object->_objectSchema.swiftGenericProperties) {
-        id ivar = object_getIvar(object, prop.swiftIvar);
-        if (!ivar) {
+        if (prop.swiftIvar == RLMDummySwiftIvar) {
             // FIXME: this should actually be an error as it's the result of an
             // invalid object definition, but that's a breaking change so
             // instead preserve the old behavior until the next major version bump
             // https://github.com/realm/realm-cocoa/issues/5784
             continue;
         }
-
+        id ivar = object_getIvar(object, prop.swiftIvar);
         if (prop.type == RLMPropertyTypeLinkingObjects) {
             [ivar setObject:(id)[[RLMWeakObjectHandle alloc] initWithObject:object]];
             [ivar setProperty:prop];
@@ -113,9 +114,17 @@ void RLMInitializeSwiftAccessorGenerics(__unsafe_unretained RLMObjectBase *const
     }
 }
 
+void RLMVerifyHasPrimaryKey(Class cls) {
+    RLMObjectSchema *schema = [cls sharedSchema];
+    if (!schema.primaryKeyProperty) {
+        NSString *reason = [NSString stringWithFormat:@"'%@' does not have a primary key and can not be updated", schema.className];
+        @throw [NSException exceptionWithName:@"RLMException" reason:reason userInfo:nil];
+    }
+}
+
 void RLMAddObjectToRealm(__unsafe_unretained RLMObjectBase *const object,
                          __unsafe_unretained RLMRealm *const realm,
-                         bool createOrUpdate) {
+                         RLMUpdatePolicy updatePolicy) {
     RLMVerifyInWriteTransaction(realm);
 
     // verify that object is unmanaged
@@ -141,7 +150,9 @@ void RLMAddObjectToRealm(__unsafe_unretained RLMObjectBase *const object,
     object->_objectSchema = info.rlmObjectSchema;
     try {
         realm::Object::create(c, realm->_realm, *info.objectSchema, (id)object,
-                              createOrUpdate, &object->_row);
+                              updatePolicy != RLMUpdatePolicyError,
+                              updatePolicy == RLMUpdatePolicyUpdateChanged,
+                              -1, &object->_row);
     }
     catch (std::exception const& e) {
         @throw RLMException(e);
@@ -151,10 +162,10 @@ void RLMAddObjectToRealm(__unsafe_unretained RLMObjectBase *const object,
 }
 
 RLMObjectBase *RLMCreateObjectInRealmWithValue(RLMRealm *realm, NSString *className,
-                                               id value, bool createOrUpdate = false) {
+                                               id value, RLMUpdatePolicy updatePolicy) {
     RLMVerifyInWriteTransaction(realm);
 
-    if (createOrUpdate && RLMIsObjectSubclass([value class])) {
+    if (updatePolicy != RLMUpdatePolicyError && RLMIsObjectSubclass([value class])) {
         RLMObjectBase *obj = value;
         if (obj->_realm == realm && [obj->_objectSchema.className isEqualToString:className]) {
             // This is a no-op if value is an RLMObject of the same type already backed by the target realm.
@@ -177,7 +188,8 @@ RLMObjectBase *RLMCreateObjectInRealmWithValue(RLMRealm *realm, NSString *classN
     RLMObjectBase *object = RLMCreateManagedAccessor(info.rlmObjectSchema.accessorClass, realm, &info);
     try {
         object->_row = realm::Object::create(c, realm->_realm, *info.objectSchema,
-                                             (id)value, createOrUpdate).row();
+                                             (id)value, updatePolicy != RLMUpdatePolicyError,
+                                             updatePolicy == RLMUpdatePolicyUpdateChanged).row();
     }
     catch (std::exception const& e) {
         @throw RLMException(e);

@@ -92,6 +92,7 @@ final class RealmDatabase: AnimeDatabase {
         add(anime: madoka)
     }
 
+    @discardableResult
     func add(anime: Anime) -> Bool {
         let status: ()? = try? realm.write {
             realm.add(anime.encode())

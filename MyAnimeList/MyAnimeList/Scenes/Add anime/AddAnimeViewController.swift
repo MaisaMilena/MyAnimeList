@@ -11,18 +11,28 @@ import UIKit
 /**
     Class to control the view of the scene.
  */
-class AddAnimeViewController: UIViewController, AddAnimePresenterOutput {
-    
+class AddAnimeViewController: UITableViewController, AddAnimePresenterOutput {
+
+    private enum Constant {
+        static let ratingLimit: Int = 5
+    }
+
     // Delegate
     var output: AddAnimeInteractorInput!
     var router: AddAnimeRouter!
-    
+
     // MARK: - User input
     @IBOutlet weak var animeTitle: UITextField!
     @IBOutlet weak var animeDescription: UITextView!
     @IBOutlet weak var isWatched: UISwitch!
-    @IBOutlet private weak var ratingStackView: UIStackView!
-    private var rating: Int = 0
+    @IBOutlet weak var ratingTextField: UITextField!
+
+    private var rating: Int {
+        guard let value = ratingTextField.text else {
+            return .zero
+        }
+        return Int(value) ?? .zero
+    }
     
     // MARK: - Object lifecycle
     init() {
@@ -38,9 +48,15 @@ class AddAnimeViewController: UIViewController, AddAnimePresenterOutput {
     // MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        tableView.tableFooterView = UIView()
     }
     
     // MARK: - Event handling
+    @IBAction func cancelAction(_ sender: Any) {
+        router.navigateToHome()
+    }
+
     @IBAction func submitAnimeAction(_ sender: Any) {
         guard let title = animeTitle?.text,
               let description = animeDescription?.text,
@@ -56,19 +72,14 @@ class AddAnimeViewController: UIViewController, AddAnimePresenterOutput {
             let status: AnimeStatusType = watched ? .watched : .toWatch
             let anime = Anime(title: title,
                               description: description,
-                              rating: Int(rating),
+                              rating: rating,
                               status: status)
             
             let request = AddAnime.Request(anime: anime)
             output.addAnimeOnDatabase(request)
         }
     }
-    
-    @IBAction func onTouchUpRating(_ sender: UIButton) {
-        rating = sender.tag
-        updateRatingView()
-    }
-    
+
     // MARK: - Display logic
     func displayMessage(_ isAnimeAdded: AddAnime.Response) {
         let alertVC = UIAlertController(title: "Yeah!", message: "Anime added with success", preferredStyle: .alert)
@@ -79,11 +90,33 @@ class AddAnimeViewController: UIViewController, AddAnimePresenterOutput {
         present(alertVC, animated: true, completion: nil)
         
     }
-    
-    private func updateRatingView() {
-        for i in 0..<5 {
-            let button = ratingStackView.arrangedSubviews[i] as! UIButton
-            button.isSelected = i < rating
+
+}
+
+extension AddAnimeViewController: UITextFieldDelegate {
+
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard textField == ratingTextField,
+            !string.isEmpty else {
+            return true
+        }
+        if textField.text?.isEmpty == true,
+            string.rangeOfCharacter(from: NSCharacterSet.decimalDigits) != nil,
+        .zero ... Constant.ratingLimit ~= (Int(string) ?? .zero) {
+          return true
+       } else {
+          return false
+       }
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case animeTitle:
+            ratingTextField.becomeFirstResponder()
+            return false
+        default:
+            ratingTextField.resignFirstResponder()
+            return true
         }
     }
 }

@@ -16,9 +16,7 @@ class AddAnimeRouter {
     
     // MARK: Manual navigation
     func navigateToHome() {
-        // using pop does not update the table view value
-        //viewController?.navigationController?.popViewController(animated: true)
-        viewController?.performSegue(withIdentifier: "addAnimeToHomeSegue", sender: nil)
+        viewController?.dismiss(animated: true, completion: nil)
     }
     
 //    // MARK: Scene communication

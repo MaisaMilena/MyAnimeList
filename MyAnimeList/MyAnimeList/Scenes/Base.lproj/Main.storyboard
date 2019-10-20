@@ -65,7 +65,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Jdx-W3-lAf">
                             <connections>
                                 <action selector="addAnime:" destination="Jya-Mr-N3e" id="mUP-HR-tdk"/>
-                                <segue destination="4Z3-Oi-0ZP" kind="show" id="00C-H5-kYT"/>
+                                <segue destination="4Z3-Oi-0ZP" kind="presentation" id="00C-H5-kYT"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

@@ -40,8 +40,6 @@ class ListAnimeViewController: UITableViewController, ListAnimePresenterOutput {
     
     // MARK: - View lifecycle
     override func viewDidLoad() {
-        let request = ListAnime.Request.init(animeCategory: .toWatch)
-        output.getAnimes(request)
         super.viewDidLoad()
         
         let nib = UINib(nibName: "AnimeTableViewCell", bundle: nil)
@@ -49,6 +47,8 @@ class ListAnimeViewController: UITableViewController, ListAnimePresenterOutput {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        let request = ListAnime.Request.init(animeCategory: .toWatch)
+        output.getAnimes(request)
         // Reloads the content of table view
         tableView.reloadData()
     }

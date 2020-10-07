@@ -79,6 +79,21 @@ final class RealmDatabase: AnimeDatabase {
                                    rating: 5, 
                                    status: .toWatch)
         
+        let attackOnTitan = Anime(title: "Attack on Titan", 
+                                   description: "Humanity lives within cities surrounded by enormous walls that protect them from gigantic man-eating Titans.", 
+                                   rating: 5, 
+                                   status: .toWatch)
+        
+        let assassinationClassroom = Anime(title: "Assassination Classroom", 
+                                   description: "A powerful octopus-like teacher threatens to destroy Earth, while his students try to assassinate him.", 
+                                   rating: 5, 
+                                   status: .toWatch)
+        
+        let takagi = Anime(title: "Teasing Master Takagi-san", 
+                                   description: "Takagi loves to tease her classmate Nishikata, and Nishikata's trys (but always fails) to get back at her.", 
+                                   rating: 5, 
+                                   status: .toWatch)
+        
         add(anime: saikiKusuo)
         add(anime: melancoly)
         add(anime: steins)
@@ -90,6 +105,9 @@ final class RealmDatabase: AnimeDatabase {
         add(anime: fullMetal)
         add(anime: captainTsubasa)
         add(anime: madoka)
+        add(anime: attackOnTitan)
+        add(anime: assassinationClassroom)
+        add(anime: takagi)
     }
 
     @discardableResult
